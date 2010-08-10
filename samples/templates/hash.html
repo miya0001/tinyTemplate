@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Simple Template</title>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Address</th>
+            </tr>
+            {loop:$user}
+                <tr>
+                    <td>{$user[].name}</td>
+                    <td>{$user[].phone}</td>
+                    <td>{$user[].address}</td>
+                </tr>
+            {/loop:$user}
+        </table>
+    </body>
+</html>

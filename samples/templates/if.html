@@ -1,0 +1,12 @@
+<html>
+    <head>
+        <title>IF - ELSE</title>
+    </head>
+    <body>
+        {if:$is_logged_in}
+            <a href="?login=0">logout</a>
+        {else:$is_logged_in}
+            <a href="?login=1">login</a>
+        {/if:$is_logged_in}
+    </body>
+</html>

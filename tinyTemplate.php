@@ -40,7 +40,7 @@ class tinyTemplate {
     {
         if($base_path) $this->base_path = $base_path;
         $this->reset_vars = $reset_vars;
-        $this->default_modifier = array(&$this, 'modifier');
+        $this->default_modifier = array($this, 'modifier');
     }
 
 
@@ -59,7 +59,7 @@ class tinyTemplate {
             $this->scalars[$tag] = $result;
         } else {
             if ($modifier) {
-                call_user_func($this->default_modifier, &$var);
+                call_user_func_array($this->default_modifier, array(&$var));
             }
             $this->scalars[$tag] = $var;
             $this->ifs[] = $tag;
@@ -298,8 +298,9 @@ class tinyTemplate {
 
     private function modifier(&$str)
     {
-        htmlentities(&$str, ENT_QUOTES, mb_internal_encoding());
-        trim(&$str);
+        $str = htmlentities($str, ENT_QUOTES, mb_internal_encoding());
+        $str = trim($str);
+        return $str;
     }
 }
 }

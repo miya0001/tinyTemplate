@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Nested Loop</title>
+    </head>
+    <body>
+
+{loop:$results}
+  <ul>
+  <li>{$results[].name}
+  <li>{$results[].pass}
+    <ul>
+      {loop:$results[].colors}
+        <li>{$results[].colors[]}</li>
+      {/loop:$results[].colors}
+    </ul>
+  </ul>
+{/loop:$results}
+
+
+    </body>
+</html>
